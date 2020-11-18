@@ -1,14 +1,15 @@
-# conding: utf-8
+# coding: utf-8
 # 作者: 杨佳
 # 创建时间: 2020/9/22 21:44
 # 文件: setting
 import os
 import time
 
-
 '''
     配置文件类，所有的配置信息都写在该类中
 '''
+
+
 class Settings:
     # 当前日期
     day = str(time.strftime("%Y-%m-%d"))
@@ -33,5 +34,5 @@ class Settings:
         os.makedirs(report_path)
 
     # browsermob_server_address = r"E:\Program Files\browsermob-proxy-2.1.4\bin\browsermob-proxy.bat"
-    excel_path = data_path+'case.xlsx'
+    excel_path = data_path + 'case.xlsx'
     excel_data_column = 4

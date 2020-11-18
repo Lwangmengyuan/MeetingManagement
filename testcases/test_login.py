@@ -1,11 +1,11 @@
-# _*_conding:utf-8_*_
+# coding:utf-8
 # 作者: 杨佳
 # 创建时间: 2020/11/11 21:36
 # 文件: test_login
 import time
 import allure
 import pytest
-from pages.login_page import Login_page
+from pages.login_page import LoginPage
 from common.deal_excel import DealExcel
 from common.log import do_log
 
@@ -20,10 +20,11 @@ from common.log import do_log
 # broswer = fixture
 # 普通用户登录
 @allure.title("普通用户登录测试")
+@pytest.mark.run(order=3)
 @pytest.mark.success
 @pytest.mark.parametrize('data', DealExcel().read('login')[0])
 def test_login_employ_success(data, browser):
-    l = Login_page(browser)
+    l = LoginPage(browser)
     l.get().click_privacy_policy().login(data['phone'])
     time.sleep(5)
     acture_val = l.employ_login_info()
@@ -39,10 +40,11 @@ def test_login_employ_success(data, browser):
 
 # 退出登录
 @allure.title("退出登录测试")
+@pytest.mark.run(order=4)
 @pytest.mark.success
 @pytest.mark.parametrize('data', DealExcel().read('login')[1])
 def test_sign_out(data, browser):
-    l = Login_page(browser)
+    l = LoginPage(browser)
     l.click_sign_out()
     acture_val = l.sign_out_info()
 
@@ -57,10 +59,11 @@ def test_sign_out(data, browser):
 
 # 管理员登录
 @allure.title("管理员登录测试")
+@pytest.mark.run(order=5)
 @pytest.mark.success
 @pytest.mark.parametrize('data', DealExcel().read('login')[2])
 def test_login_admin_success(data, browser):
-    l = Login_page(browser)
+    l = LoginPage(browser)
     l.login(data['phone'])
     acture_val = l.admin_login_info()
     browser.quit()

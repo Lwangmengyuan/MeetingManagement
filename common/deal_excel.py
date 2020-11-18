@@ -7,18 +7,9 @@ class DealExcel:
     def __init__(self):
         self.ws = None
 
-    # def read_excel(self, *position):
-    #     path = '../data/case.xlsx'
-    #     wb = load_workbook(path)
-    #     ws = wb['testcase']
-    #     data_list = []
-    #     for i in position:
-    #         data_list.append(eval(ws[i].value))
-    #     wb.close()
-    #     return data_list
-
     s = Settings()
 
+    # 读取测试数据
     def read(self, sheetname=None):
         path = self.s.excel_path
         wb = load_workbook(path)
@@ -35,3 +26,24 @@ class DealExcel:
                 data_list.append([eval(value)])
         wb.close()
         return data_list
+
+    # 写入数据
+    def write(self, data, row_index, column_index, sheetname=None):
+        path = self.s.excel_path
+        wb = load_workbook(path)
+        if not sheetname:
+            ws = wb.active
+        else:
+            ws = wb[sheetname]
+        # 获取Excel中原测试数据
+        temp = eval(ws.cell(row_index, column_index).value)
+        # 循环替换新测试数据
+        for i in temp.keys():
+            if i in data.keys():
+                temp[i] = data[i]
+            else:
+                continue
+        ws.cell(row_index, column_index).value = str(temp)
+        wb.save(path)
+        wb.close()
+        return row_index

@@ -4,6 +4,7 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from common.log import do_log
 from common.setting import Settings
+from selenium.webdriver.support.select import Select
 
 
 '''
@@ -65,6 +66,18 @@ class BasePage:
         """点击某个元素"""
         e = self.wait_element_clickable(locator)
         e.click()
+        return self
+
+    def select_element(self, locator, target):
+        """
+        下拉框选择
+        :param locator: 选择框右侧展开箭头元素定位
+        :param target:  待选择项元素位置
+        """
+        # pending_option = self.find(locator)
+        # Select(pending_option).select_by_visible_text(target)
+        self.find(locator).click()
+        self.find(target).click()
         return self
 
     def double_click(self, locator):

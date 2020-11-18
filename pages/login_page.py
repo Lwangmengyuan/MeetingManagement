@@ -9,7 +9,7 @@ from common.base_page import BasePage
 
 # 继承BasePage
 # 登录页面逻辑：1.登录，2.点击隐私条款，3.点击注册按钮
-class Login_page(BasePage):
+class LoginPage(BasePage):
     # 隐私条款
     privacy_policy_locator = ('xpath', '//*[@id="logo"]/div[2]/label/span/span')
     # 手机号输入框
@@ -67,7 +67,8 @@ class Login_page(BasePage):
 
     # 点击注册按钮
     def click_register(self):
-        self.find(self.register_btn_locator).click()
+        register_elem = self.find(self.register_btn_locator)
+        self.driver.execute_script("arguments[0].click();", register_elem)
         return self
 
     # 点击退出按钮
