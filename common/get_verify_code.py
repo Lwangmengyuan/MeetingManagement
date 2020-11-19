@@ -1,5 +1,6 @@
 # coding: utf-8
 import redis
+import time
 
 '''
     获取登录或者注册验证码
@@ -42,10 +43,22 @@ class GetVerifyCode:
             return code
 
     def get_login_register(self, phone, flag):
+        count = 0
         if flag == 'l':
-            return self.get_login_code(phone)
+            while count < 20:
+                res = self.get_login_code(phone)
+                if res:
+                    break
+                count += 1
+                time.sleep(3)
         elif flag == 'r':
-            return self.get_register_code(phone)
+            while count < 20:
+                res = self.get_register_code(phone)
+                time.sleep(3)
+                if res:
+                    break
+                count += 1
+        return res
 
     def removal(val):
         str1 = ""
