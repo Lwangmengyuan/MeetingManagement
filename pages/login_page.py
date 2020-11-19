@@ -47,9 +47,6 @@ class LoginPage(BasePage):
         # 定位获取验证码按钮
         get_code_elem = self.find(self.get_code_locator)
         get_code_elem.click()
-        # 等待后台生成验证码
-        # TO-DO：待优化
-        time.sleep(20)
         # 获取验证码
         code = GetVerifyCode().get_login_register(phone, 'l')
         # 输入正确的验证码
