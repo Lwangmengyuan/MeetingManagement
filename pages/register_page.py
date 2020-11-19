@@ -102,6 +102,7 @@ class RegisterPage(BasePage):
         self.find(self.admin_verification_code_locator).send_keys(code)
         # 点击完成
         self.find(self.admin_complete_btn_locator).click()
+        return self
 
     def employ_register(self, info):
         # 选择公司员工，点击【完成】
@@ -130,6 +131,7 @@ class RegisterPage(BasePage):
         self.find(self.employ_verification_code_locator).send_keys(code)
         # 点击完成
         self.find(self.employ_complete_btn_locator).click()
+        return self
 
     # 判断管理员是否注册成功
     def admin_register_info(self):

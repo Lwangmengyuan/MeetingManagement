@@ -31,6 +31,16 @@ class BasePage:
         else:
             return e
 
+    def finds(self, locator):
+        """查找所有元素"""
+        try:
+            e = self.driver.find_elements(*locator)
+        except Exception as err:
+            do_log.error(f"元素定位失败：{err}")
+            return None
+        else:
+            return e
+
     def wait_element_clickable(self, locator, timeout=20, poll_frequency=0.2):
         """等待元素可以被点击"""
         wait = WebDriverWait(self.driver, timeout, poll_frequency)

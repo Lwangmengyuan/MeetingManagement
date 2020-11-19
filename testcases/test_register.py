@@ -9,7 +9,7 @@ from pages.register_page import RegisterPage
 
 
 # class Test_register:
-def update_data(self):
+def update_data():
     # 生成最新管理员和普通员工账号
     rd = RandomData()
     admin_data = {'company_name': rd.random_company_name(),
@@ -32,7 +32,7 @@ def update_data(self):
 @allure.title("管理员注册测试")
 @pytest.mark.run(order=1)
 @pytest.mark.parametrize('data', DealExcel().read('register')[0])
-def test_register_admin_success(self, data, browser):
+def test_register_admin_success(data, browser):
     update_data()
     r = RegisterPage(browser)
     r.get().admin_register(data)
@@ -52,7 +52,7 @@ def test_register_admin_success(self, data, browser):
 @allure.title("普通员工注册测试")
 @pytest.mark.run(order=2)
 @pytest.mark.parametrize('data', DealExcel().read('register')[1])
-def test_register_employ_success(self, data, browser):
+def test_register_employ_success(data, browser):
     r = RegisterPage(browser)
     r.get().employ_register(data)
     time.sleep(5)

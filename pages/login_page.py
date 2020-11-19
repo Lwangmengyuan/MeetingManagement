@@ -1,7 +1,4 @@
 # _*_conding:utf-8_*_
-# 作者: 杨佳
-# 创建时间: 2020/9/3 21:39
-# 文件: login
 import time
 from common.get_verify_code import GetVerifyCode
 from common.base_page import BasePage
@@ -29,7 +26,7 @@ class LoginPage(BasePage):
     # 首页
     home_locator = ('xpath', '//*[@id="app"]/section/section/aside/div/ul/div/li[1]/span')
     # 通讯录
-    address_book_locator = ('xpath', '// *[ @ id = "app"] / section / section / aside / div / ul / div / li[4] / span')
+    address_book_locator = ('xpath', '//*[@id="app"]/section/section/aside/div/ul/div/li[4]')
     # 新增用户按钮
     add_user_btn_locator = ('xpath', '//*[@id="app"]/section/section/section/main/div/div/div[1]/button[2]/span')
     # 会议管理系统地址

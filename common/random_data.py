@@ -39,3 +39,7 @@ class RandomData:
             return '131' + self.now_time
         else:
             return '131' + self.diff_time
+
+    # 按当前时间生成部门名称
+    def random_department(self):
+        return 'department' + self.now_time

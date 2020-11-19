@@ -1,7 +1,4 @@
 # coding:utf-8
-# 作者: 杨佳
-# 创建时间: 2020/11/11 21:36
-# 文件: test_login
 import time
 import allure
 import pytest
@@ -66,7 +63,7 @@ def test_login_admin_success(data, browser):
     l = LoginPage(browser)
     l.login(data['phone'])
     acture_val = l.admin_login_info()
-    browser.quit()
+    # browser.quit()
 
     try:
         assert data["expect_val"] == acture_val
