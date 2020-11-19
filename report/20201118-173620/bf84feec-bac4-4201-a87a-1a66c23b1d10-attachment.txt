@@ -1,0 +1,1 @@
+ERROR    日志记录:test_register.py:43 管理员注册测试用例不通过:assert '' == True

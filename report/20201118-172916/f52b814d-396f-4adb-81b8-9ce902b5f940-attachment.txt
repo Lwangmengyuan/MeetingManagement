@@ -1,0 +1,2 @@
+ERROR    日志记录:base_page.py:29 元素定位失败：Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="app"]/div/div/div/form/div[6]/div/button"}
+  (Session info: chrome=86.0.4240.75)

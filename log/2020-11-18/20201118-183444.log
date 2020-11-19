@@ -1,0 +1,8 @@
+[INFO]:[test_register.py]-[test_register_admin_success]:41 管理员注册测试用例通过
+[INFO]:[test_register.py]-[test_register_employ_success]:59 普通员工注册测试用例通过
+[ERROR]:[base_page.py]-[find]:29 元素定位失败：Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="app"]/section/section/section/main/div/div/div[1]/button[2]/span"}
+  (Session info: chrome=86.0.4240.75)
+
+[INFO]:[test_login.py]-[test_login_employ_success]:33 普通用户登录测试用例通过
+[INFO]:[test_login.py]-[test_sign_out]:51 退出登录测试用例通过
+[INFO]:[test_login.py]-[test_login_admin_success]:70 管理员登录测试用例通过

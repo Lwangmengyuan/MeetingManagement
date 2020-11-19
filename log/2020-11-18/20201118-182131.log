@@ -1,0 +1,5 @@
+[INFO]:[test_register.py]-[test_register_admin_success]:41 管理员注册测试用例通过
+[ERROR]:[base_page.py]-[find]:29 元素定位失败：Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="app"]/div/div/div[2]/div"}
+  (Session info: chrome=86.0.4240.75)
+
+[ERROR]:[test_register.py]-[test_register_employ_success]:61 普通员工注册测试用例不通过:assert True == False

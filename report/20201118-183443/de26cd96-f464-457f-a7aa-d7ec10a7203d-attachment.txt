@@ -1,0 +1,1 @@
+[INFO]:[test_register.py]-[test_register_employ_success]:59 普通员工注册测试用例通过

@@ -1,0 +1,1 @@
+INFO     日志记录:test_register.py:59 普通员工注册测试用例通过

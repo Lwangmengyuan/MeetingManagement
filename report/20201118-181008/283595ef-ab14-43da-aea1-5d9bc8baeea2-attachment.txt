@@ -1,0 +1,1 @@
+INFO     日志记录:test_register.py:41 管理员注册测试用例通过

@@ -1,0 +1,1 @@
+[ERROR]:[test_register.py]-[test_register_admin_success]:43 管理员注册测试用例不通过:assert '' == True
