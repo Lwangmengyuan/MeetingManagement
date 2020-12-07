@@ -7,7 +7,7 @@ from pages.login_page import LoginPage
 
 class RegisterPage(BasePage):
     # 注册链接
-    register_link_locator = ('xpath', '//*[@id="warp3"]/div[3]')
+    register_link_locator = ('xpath', '//*[@id="warp3"]/div[4]')
     # 公司管理员选项
     admin_select_locator = ('xpath', '//*[@id="app"]/div/div/div[2]/label/span[1]')
     # 公司员工选项
@@ -64,7 +64,7 @@ class RegisterPage(BasePage):
     enter_system = ('xpath', '//*[@id="button1"]')
     # employ_enter_system = ('xpath', '//*[@id="button1"]')
     # 会议管理系统地址
-    url = 'http://10.104.10.90/'
+    # url = 'http://10.88.64.54/'
 
     def get(self):
         l = LoginPage(self.driver)

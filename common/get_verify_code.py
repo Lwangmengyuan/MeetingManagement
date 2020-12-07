@@ -8,7 +8,8 @@ import redis
 
 class GetVerifyCode:
     def get_keylst(self):
-        ip = '10.104.15.82'
+        # ip = '10.104.15.82'
+        ip = '10.88.65.240'
         auth = 'tcl2020-cloud'
         r = redis.Redis(host=ip, port=6379, db=12, password=auth)
         return r.keys('*'), r

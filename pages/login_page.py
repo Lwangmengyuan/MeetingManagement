@@ -9,16 +9,18 @@ from common.base_page import BasePage
 class LoginPage(BasePage):
     # 隐私条款
     privacy_policy_locator = ('xpath', '//*[@id="logo"]/div[2]/label/span/span')
+    # 手机号登录
+    phone_login_locator = ('xpath', '//*[@id="ptext"]/div[2]')
     # 手机号输入框
-    phone_locator = ('xpath', '//*[@id="warp3"]/div[1]/input')
+    phone_locator = ('xpath', '//*[@id="warp3"]/div[2]/input')
     # 验证码获取按钮
-    get_code_locator = ('xpath', '//*[@id="warp3"]/div[2]/button')
+    get_code_locator = ('xpath', '//*[@id="warp3"]/div[3]/button')
     # 验证码输入框
-    verification_code_locator = ('xpath', '//*[@id="warp3"]/div[2]/input')
+    verification_code_locator = ('xpath', '//*[@id="warp3"]/div[3]/input')
     # 登录按钮
     login_btn_locator = ('xpath', '//*[@id="button1"]')
     # 注册按钮
-    register_btn_locator = ('xpath', '//*[@id="warp3"]/div[3]')
+    register_btn_locator = ('xpath', '//*[@id="warp3"]/div[4]')
     # 退出按钮
     sign_out_btn_locator = ('xpath', '//*[@id="headerdiv"]/div[1]/span[2]')
     # 退出确认按钮
@@ -30,14 +32,16 @@ class LoginPage(BasePage):
     # 新增用户按钮
     add_user_btn_locator = ('xpath', '//*[@id="app"]/section/section/section/main/div/div/div[1]/button[2]/span')
     # 会议管理系统地址
-    url = 'http://10.104.10.90/'
+    url = 'http://10.88.64.54/'
 
     # 打开登录首页
     def get(self):
         self.driver.get(self.url)
         return self
 
-    def login(self, phone):
+    def phone_login(self, phone):
+        # 切换至手机号登录
+        self.find(self.phone_login_locator).click()
         # 定位电话号码输入框
         phone_elem = self.find(self.phone_locator)
         phone_elem.send_keys(phone)
@@ -52,6 +56,17 @@ class LoginPage(BasePage):
         # 输入正确的验证码
         code_elem = self.find(self.verification_code_locator)
         code_elem.send_keys(code)
+        # 点击登录
+        self.find(self.login_btn_locator).click()
+        return self
+
+    def password_login(self, phone, password):
+        # 定位电话号码输入框
+        phone_elem = self.find(self.phone_locator)
+        phone_elem.send_keys(phone)
+        # 定位密码输入框
+        password_elem = self.find(self.verification_code_locator)
+        password_elem.send_keys(password)
         # 点击登录
         self.find(self.login_btn_locator).click()
         return self
